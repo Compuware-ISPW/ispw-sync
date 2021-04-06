@@ -82,11 +82,11 @@ with:
     host: 'cw09'
     port: 47623
     uid: 'foo'
-    pass: 'bar'
+    pass: ${{ secrets.ISPWPASS }}
     runtimeConfiguration: 'TPZP'
     stream: 'PLAY'
     application: 'PLAY'
     checkoutLevel: 'DEV2'
     gitUid: 'gitfoo'
-    gitPass: 'gitbar'
+    gitPass: ${{ secrets.GITPASS }}
 ```
