@@ -77,16 +77,33 @@ The changed programs JSON
 ## Example usage
 
 ```yaml
-uses: actions/ispw-sync@v1
-with:
-    host: 'cw09'
-    port: 47623
-    uid: 'foo'
-    pass: ${{ secrets.ISPWPASS }}
-    runtimeConfiguration: 'TPZP'
-    stream: 'PLAY'
-    application: 'PLAY'
-    checkoutLevel: 'DEV2'
-    gitUid: 'gitfoo'
-    gitPass: ${{ secrets.GITPASS }}
+  job_sync:
+    runs-on: [self-hosted, ubuntu20]
+    name: ISPW Sync
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Sync step
+        uses: actions/ispw-sync@v1
+        with:
+            host: 'cw09'
+            port: 47623
+            uid: 'foo'
+            pass: ${{ secrets.ISPWPASS }}
+            runtimeConfiguration: 'TPZP'
+            stream: 'PLAY'
+            application: 'PLAY'
+            checkoutLevel: 'DEV2'
+            gitUid: 'gitfoo'
+            gitPass: ${{ secrets.GITPASS }}
+            encryptionProtocol: 'None'
+            codePage: 1047
+            timeout: 0
+            showEnv: true
+        - name: Output automatic build parameters
+            run: echo "automaticBuildJson=${{ steps.sync.outputs.automaticBuildJson }}"
+        - name: Output changed programs
+            run: echo "changedProgramsJson=${{ steps.sync.outputs.changedProgramsJson }}"
 ```
