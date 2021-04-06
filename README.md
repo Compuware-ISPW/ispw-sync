@@ -77,7 +77,7 @@ The changed programs JSON
 ## Example usage
 
 ```yaml
-uses: actions/ispw-sync-action@v1
+uses: actions/ispw-sync@v1
 with:
     host: 'cw09'
     port: 47623
