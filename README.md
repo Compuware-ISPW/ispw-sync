@@ -1,6 +1,6 @@
-# ISPW Sync docker action
+# ISPW Sync GitHub docker action
 
-This action will load changed components to ISPW server
+This action will load changed components into ISPW server
 
 ## Inputs
 
