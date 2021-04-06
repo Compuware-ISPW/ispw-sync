@@ -30,7 +30,7 @@ This action will load changed components into ISPW server
 
 ### `pass`
 
-**Required** the password for the connection. For example, `"bar"`
+**Required** the password for the connection. Please use secrets, such as, `${{ secrets.ISPWPASS }}`
 
 ### `runtimeConfiguration`
 
@@ -54,7 +54,7 @@ This action will load changed components into ISPW server
 
 ### `gitPass`
 
-**Required** the password for the GIT repository. For example, `"gitbar"`
+**Required** the password for the GIT repository. Please use secrets, such as, `${{ secrets.GITPASS }}`
 
 ### `containerCreation`
 
