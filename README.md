@@ -85,7 +85,7 @@ The changed programs JSON
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Sync step
+      - name: Synchronize
         uses: actions/ispw-sync@v1
         id: sync
         with:
