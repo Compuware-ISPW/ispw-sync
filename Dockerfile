@@ -1,27 +1,21 @@
 
-FROM opensuse/leap
+FROM adoptopenjdk/openjdk11:jre-11.0.10_9
 
 LABEL author="Compuware - A BMC Company"
 USER root
 
-RUN zypper up -y &&\
-	zypper -q --non-interactive install \
-	unzip \
-	sudo \
-	java-11-openjdk \
-	git-core \
-	wget
+RUN apt-get --no-install-recommends update \
+    && apt-get install -y --no-install-recommends unzip \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_HOME "/usr/lib64/jvm/java-11-openjdk-11"
-
-#Install Topaz CLI
 RUN mkdir /TopazCliInstall
 COPY SyncToIspw.sh /TopazCliInstall/SyncToIspw.sh	
-RUN wget http://dtw-svngateway.prodti.compuware.com/CommonBundleDepot/products/Enterprise/TopazCLI/207-ci-repo/TopazCLI-linux.gtk.x86_64.zip
-RUN mv TopazCLI-linux.gtk.x86_64.zip /TopazCliInstall/TopazCLI-linux.gtk.x86_64.zip
+COPY dist/TopazCLI-linux.gtk.x86_64.zip /TopazCliInstall/TopazCLI-linux.gtk.x86_64.zip
+
 WORKDIR "/TopazCliInstall"
 RUN unzip TopazCLI-linux.gtk.x86_64.zip
 RUN chmod 777 IspwCLI.sh SyncToIspw.sh
+RUN rm -rf ./TopazCLI-linux.gtk.x86_64.zip
 
 ENTRYPOINT ["/TopazCliInstall/SyncToIspw.sh"]
 CMD ["SyncToIspw"]
