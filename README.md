@@ -87,6 +87,7 @@ The changed programs JSON
           fetch-depth: 0
       - name: Sync step
         uses: actions/ispw-sync@v1
+        id: sync
         with:
             host: 'cw09'
             port: 47623
