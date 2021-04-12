@@ -64,6 +64,6 @@ outputs:
     description: 'The changed programs JSON'
 runs:
   using: 'docker'
-  image: 'ghcr.io/compuware-ispw/ispwcli:v20.6.1.gtk'
+  image: 'docker://ghcr.io/compuware-ispw/ispwcli:v20.6.1.gtk'
 
 
