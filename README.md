@@ -1,8 +1,53 @@
-# ISPW Sync GitHub docker action
+# BMC/Compuware ISPW Sync GitHub action
 
-This action will load changed components into ISPW server. It uses [BMC/Compuware ISPW CLI container](https://hub.docker.com/r/bmctopaz/ispwcli) to push changed components to ISPW. In order to use [ispw-sync@v](http://github/compuware-ispw/ispw-sync) action, the GitHub VM launched in the workflow must enable the following:
+This action will load changed components into ISPW server. It uses [BMC/Compuware ISPW CLI container](https://hub.docker.com/r/bmctopaz/ispwcli) to push changed components to ISPW. In order to use [compuware-ispw/ispw-sync@v20.6.1.gtk](http://github/compuware-ispw/ispw-sync) action, the GitHub VM launched in the workflow must enable the following:
 * support Docker - nested VM (For example, self-hosted Linux runner or ubuntu-latest)
 * Access ISPW host and port from the VM
+
+<!-- toc -->
+
+- [Usage] (#usage)
+- [Inputs] (#inputs)
+- [Troubleshooting] (#troubleshooting)
+- [License Summary] (#license-summary)
+- [Limitation] (#limitation)
+- 
+<!-- tocstop -->
+
+## Usage
+
+```yaml
+  job_sync:
+    runs-on: [self-hosted, ubuntu20]
+    name: ISPW Sync
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Synchronize
+        uses: compuware-ispw/ispw-sync@v20.6.1.gtk
+        id: sync
+        with:
+            host: 'cw09'
+            port: 47623
+            uid: 'foo'
+            pass: ${{ secrets.ISPWPASS }}
+            runtimeConfiguration: 'TPZP'
+            stream: 'PLAY'
+            application: 'PLAY'
+            checkoutLevel: 'DEV2'
+            gitUid: 'gitfoo'
+            gitPass: ${{ secrets.GITPASS }}
+            encryptionProtocol: 'None'
+            codePage: 1047
+            timeout: 0
+            showEnv: true
+        - name: Output automatic build parameters
+            run: echo "automaticBuildJson=${{ steps.sync.outputs.automaticBuildJson }}"
+        - name: Output changed programs
+            run: echo "changedProgramsJson=${{ steps.sync.outputs.changedProgramsJson }}"
+```
 
 ## Inputs
 
@@ -61,11 +106,14 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 ### `containerCreation`
 
 **Optional** The option to indicate how often to create a new ISPW container (per-commit, per-branch). Default, `"per-commit"`
-
 ### `containerDescription`
 
 **Optional** The custom description to be used for the ISPW container.
 
+
+### `showEnv`
+
+**Optional** Show value of environment variables for debugging
 ## Outputs
 
 ### `automaticBuildJson`
@@ -76,37 +124,14 @@ The automatic build parameters JSON
 
 The changed programs JSON
 
-## Example usage
+## Troubleshooting
 
-```yaml
-  job_sync:
-    runs-on: [self-hosted, ubuntu20]
-    name: ISPW Sync
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Synchronize
-        uses: actions/ispw-sync@v1
-        id: sync
-        with:
-            host: 'cw09'
-            port: 47623
-            uid: 'foo'
-            pass: ${{ secrets.ISPWPASS }}
-            runtimeConfiguration: 'TPZP'
-            stream: 'PLAY'
-            application: 'PLAY'
-            checkoutLevel: 'DEV2'
-            gitUid: 'gitfoo'
-            gitPass: ${{ secrets.GITPASS }}
-            encryptionProtocol: 'None'
-            codePage: 1047
-            timeout: 0
-            showEnv: true
-        - name: Output automatic build parameters
-            run: echo "automaticBuildJson=${{ steps.sync.outputs.automaticBuildJson }}"
-        - name: Output changed programs
-            run: echo "changedProgramsJson=${{ steps.sync.outputs.changedProgramsJson }}"
-```
+This action emits debug logs to help troubleshoot failure. To see the debug logs, set the input `showEnv: true`.
+
+## License summary
+
+This code is made available under the MIT license.
+
+## Limitation
+
+This action is only available for Linux [virtual environments](https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources).
