@@ -4,7 +4,7 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 * support Docker - nested VM (For example, self-hosted Linux runner or ubuntu-latest)
 * Access ISPW host and port from the VM
 
-##Table of Contents##
+## Table of Contents
 <!-- toc -->
 
 - [Usage](#usage)
