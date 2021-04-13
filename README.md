@@ -4,16 +4,17 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 * support Docker - nested VM (For example, self-hosted Linux runner or ubuntu-latest)
 * Access ISPW host and port from the VM
 
-**Table of Contents**
+##Table of Contents##
 <!-- toc -->
 
 - [Usage](#usage)
-- [Inputs](#inputs)
+- [Inputs/Outputs](#inputs)
 - [Troubleshooting](#troubleshooting)
 - [License Summary](#license-summary)
 - [Limitation](#limitation)
 
 <!-- tocstop -->
+
 
 ## Usage
 
@@ -50,8 +51,8 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
             run: echo "changedProgramsJson=${{ steps.sync.outputs.changedProgramsJson }}"
 ```
 
-## Inputs
 
+## Inputs
 ### `host`
 
 **Required** The ISPW server host. For example, `"cw09"`
@@ -115,6 +116,8 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 ### `showEnv`
 
 **Optional** Show value of environment variables for debugging
+
+
 ## Outputs
 
 ### `automaticBuildJson`
@@ -125,13 +128,16 @@ The automatic build parameters JSON
 
 The changed programs JSON
 
+
 ## Troubleshooting
 
 This action emits debug logs to help troubleshoot failure. To see the debug logs, set the input `showEnv: true`.
 
+
 ## License summary
 
 This code is made available under the MIT license.
+
 
 ## Limitation
 
