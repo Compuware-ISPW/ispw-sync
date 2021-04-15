@@ -74,7 +74,7 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 | `gitPass` | **Required** | The password for the GIT repository. Please use secrets, such as, `${{ secrets.GITPASS }}` |
 | `containerCreation` | **Optional** | The option to indicate how often to create a new ISPW container (per-commit, per-branch). Default, `"per-commit"` |
 | `containerDescription` | **Optional** | The custom description to be used for the ISPW container. |
-| `showEnv` | **Optional** | Show value of environment variables for debugging |
+| `showEnv` | **Optional** | Show value of environment variables for debugging. Possible values are `true` or `false` |
 
 
 
