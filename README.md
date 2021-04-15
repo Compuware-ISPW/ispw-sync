@@ -53,13 +53,20 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 
 
 ## Inputs
+
+| Input name | Required | Description |
+| ---------- | -------- | ----------- |
+| `host` | Required | The ISPW server host. For example, `"cw09"` |
+| `port` | Required | The ISPW server port. For example, `47623` |
+
+
 ### `host`
 
-**Required** The ISPW server host. For example, `"cw09"`
+**Required** 
 
 ### `port`
 
-**Required** The ISPW server port. For example, `47623`
+**Required** 
 
 ### `encryptionProtocol`
 
