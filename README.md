@@ -12,8 +12,6 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
   - [Usage](#usage)
   - [Inputs](#inputs)
   - [Outputs](#outputs)
-    - [`automaticBuildJson`](#automaticbuildjson)
-    - [`changedProgramsJson`](#changedprogramsjson)
   - [Troubleshooting](#troubleshooting)
   - [License summary](#license-summary)
   - [Limitation](#limitation)
@@ -60,7 +58,7 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 ## Inputs
 
 | Input name | Required | Description |
-| ---------- | -------- | ----------- |
+| :--------- | :------- | :---------- |
 | `host` | **Required** | The ISPW server host. For example, `"cw09"` |
 | `port` | **Required** | The ISPW server port. For example, `47623` |
 | `encryptionProtocol` | **Optional** | The encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2). Default `"None"`
@@ -79,16 +77,13 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 | `showEnv` | **Optional** | Show value of environment variables for debugging |
 
 
+
 ## Outputs
 
-### `automaticBuildJson`
-
-The automatic build parameters JSON
-
-### `changedProgramsJson`
-
-The changed programs JSON
-
+| Output name | Output type | Description |
+| :---------- | :---------- | :---------- |
+| `automaticBuildJson` | JSON | The automatic build parameters JSON. For example, `{"containerId":"PLAY004807","releaseId":" ","taskLevel":"DEV2","taskIds":["7E54341E21FF","7E54341E2449","7E54341E2610"]}`|
+| `changedProgramsJson` | JSON | The changed programs JSON. For example, `{ version: 1.0.0, programs: [ { version: 1.0.0, programName: TREXX10, programLanguage: CLST, isImpact: false, application: PLAY, stream: PLAY, level: DEV2 }, { version: 1.0.0, programName: TPROG10, programLanguage: COB, isImpact: false, application: PLAY, stream: PLAY, level: DEV2 }, { version: 1.0.0, programName: TPROG11, programLanguage: COB, isImpact: false, application: PLAY, stream: PLAY, level: DEV2 } ] }`|
 
 ## Troubleshooting
 
