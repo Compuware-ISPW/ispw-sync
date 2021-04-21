@@ -1,4 +1,4 @@
-# BMC/Compuware ISPW Sync GitHub action
+# BMC Compuware ISPW Sync GitHub action
 
 This action will load changed components into ISPW server. It uses [BMC/Compuware ISPW CLI container](https://hub.docker.com/r/bmctopaz/ispwcli) to push changed components to ISPW. In order to use [compuware-ispw/ispw-sync@v20.6.1.gtk](http://github/compuware-ispw/ispw-sync) action, the GitHub VM launched in the workflow must enable the following:
 * support Docker - nested VM (For example, self-hosted Linux runner or ubuntu-latest)
@@ -7,7 +7,7 @@ This action will load changed components into ISPW server. It uses [BMC/Compuwar
 ## Table of Contents
 <!-- toc -->
 
-- [BMC/Compuware ISPW Sync GitHub action](#bmccompuware-ispw-sync-github-action)
+- [BMC Compuware ISPW Sync GitHub action](#bmc-compuware-ispw-sync-github-action)
   - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
   - [Inputs](#inputs)
