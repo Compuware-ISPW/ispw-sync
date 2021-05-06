@@ -1,6 +1,6 @@
 # action.yml
-name: 'ISPW Sync'
-description: 'ISPW Sync'
+name: 'ispw-sync'
+description: 'ispw-sync'
 inputs:
   host:
     description: 'The host name or IP to be connected'
