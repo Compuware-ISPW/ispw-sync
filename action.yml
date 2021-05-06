@@ -2,7 +2,7 @@
 name: 'ispw-sync'
 description: 'Sync changesets to ISPW'
 branding:
-  icon: activity
+  icon: upload-cloud
   color: orange
 inputs:
   host:
