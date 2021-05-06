@@ -1,6 +1,9 @@
 # action.yml
 name: 'ispw-sync'
-description: 'ispw-sync'
+description: 'Sync changesets to ISPW'
+branding:
+  icon: activity
+  color: orange
 inputs:
   host:
     description: 'The host name or IP to be connected'
