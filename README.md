@@ -1,13 +1,19 @@
 # ispw-sync
 
-This action uses [BMC Compuware ISPW CLI docker container](https://hub.docker.com/r/bmctopaz/ispwcli) to push changesets into ISPW. In order to use [compuware-ispw/ispw-sync@v20.6.1.gtk](http://github/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
+This action uses [BMC Compuware ISPW CLI docker container](https://hub.docker.com/r/bmctopaz/ispwcli) to push changesets into ISPW. In order to use [bmc-compuware/ispw-sync@v1](http://github/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
 * support Docker (For example, self-hosted Linux runner with docker, self-hosted Windows with WSL2/Docker or ubuntu-latest)
 * Access ISPW host and port from the self-hosted runner
+
+GitHub action version vs Docker container version:
+| ispw-sync Version | CLI Version | DockerHub |
+| :---------- | :---------- | :---------- |
+| bmc-compuware/ispw-sync@v1 | v20.6.1.gtk | bmctopaz/ispwcli:v20.6.1.gtk |
+| bmc-compuware/ispw-sync@v2 | v20.7.1.gtk | bmctopaz/ispwcli:v20.7.1.gtk |
 
 ## Table of Contents
 <!-- toc -->
 
-- [BMC Compuware ISPW Sync GitHub action](#bmc-compuware-ispw-sync-github-action)
+- [ispw-sync](#ispw-sync)
   - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
   - [Inputs](#inputs)
@@ -31,7 +37,7 @@ This action uses [BMC Compuware ISPW CLI docker container](https://hub.docker.co
         with:
           fetch-depth: 0
       - name: Synchronize
-        uses: compuware-ispw/ispw-sync@v20.6.1.gtk
+        uses: bmc-compuware/ispw-sync@v1
         id: sync
         with:
             host: 'cw09'
@@ -97,4 +103,4 @@ This code is made available under the MIT license.
 
 ## Limitation
 
-This action is only available for Linux [virtual environments](https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources) or Windows with WSL2/Docker support.
+This action is only available for Linux [virtual environments](https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources) or [Windows with WSL2/Docker support](https://docs.docker.com/docker-for-windows/wsl/).
