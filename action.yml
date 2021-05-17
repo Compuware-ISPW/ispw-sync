@@ -1,6 +1,6 @@
 # action.yml
 name: 'ispw-sync'
-description: 'Sync changesets to ISPW'
+description: 'Sync a changeset to ISPW'
 branding:
   icon: upload-cloud
   color: orange
