@@ -49,7 +49,7 @@ inputs:
     description: 'GIT user ID'
     required: true
   gitPass:
-    description: 'GIT password'
+    description: 'GIT password, GitHub personal access token or GitHub token'
     required: true
   containerCreation:
     description: 'The option to indicate how often to create a new ISPW container'
