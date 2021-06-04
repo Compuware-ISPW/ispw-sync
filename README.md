@@ -50,7 +50,7 @@ GitHub action version vs Docker container version:
             application: 'PLAY'
             checkoutLevel: 'DEV2'
             gitUid: 'gitfoo'
-            gitPass: ${{ secrets.GITHUB_TOKEN }}
+            gitToken: ${{ secrets.GITHUB_TOKEN }}
             encryptionProtocol: 'None'
             codePage: 1047
             timeout: 0
@@ -78,7 +78,7 @@ GitHub action version vs Docker container version:
 | `application` | **Required** | The ISPW server application. For example, `"PLAY"` |
 | `checkoutLevel` | **Required** | The ISPW server level. For example, `"DEV1"` |
 | `gitUid` | **Required** | The user name for the GitHub repository. For example, `"gitfoo"` |
-| `gitPass` | **Required** | The password, GitHub personal access token or GitHub token for the GitHub repository. Please use secrets, such as, `${{ secrets.GITPASS }}`, `${{ secrets.GITPAT }}` or `${{ secrets.GITHUB_TOKEN }}` |
+| `gitToken` | **Required** | GitHub token, PAT or password for the GitHub repository. Please use secrets, such as, `${{ secrets.GITHUB_TOKEN }}`, `${{ secrets.GITPAT }}` or `${{ secrets.GITPASS }}` |
 | `containerCreation` | **Optional** | The option to indicate how often to create a new ISPW container (per-commit, per-branch). Default, `"per-commit"` |
 | `containerDescription` | **Optional** | The custom description to be used for the ISPW container. |
 | `showEnv` | **Optional** | Show value of environment variables for debugging. Possible values are `true` or `false` |
