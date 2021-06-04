@@ -8,7 +8,7 @@ GitHub action version vs Docker container version:
 | ispw-sync Version | CLI Version | DockerHub |
 | :---------- | :---------- | :---------- |
 | bmc-compuware/ispw-sync@v1 | v20.6.1.gtk | bmccompuware/ispwcli:v20.6.1.gtk |
-| bmc-compuware/ispw-sync@v2 | v20.7.1.gtk | bmccompuware/ispwcli:v20.7.1.gtk |
+| bmc-compuware/ispw-sync@v2 | v20.7.gtk.nightly | bmccompuware/ispwcli:v20.7.gtk.nightly |
 
 ## Table of Contents
 <!-- toc -->
