@@ -38,7 +38,7 @@ GitHub action version vs Docker container version:
         with:
           fetch-depth: 0
       - name: Synchronize
-        uses: bmc-compuware/ispw-sync@v1
+        uses: bmc-compuware/ispw-sync@v2
         id: sync
         with:
             host: 'cw09'
