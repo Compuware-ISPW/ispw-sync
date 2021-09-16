@@ -1,6 +1,6 @@
 # action.yml
 name: 'ispw-sync'
-description: 'Sync a changeset to ISPW'
+description: 'Sync a changeset to the mainframe using ISPW CLI docker container'
 branding:
   icon: upload-cloud
   color: orange
