@@ -1,6 +1,6 @@
 # ispw-sync
 
-This action uses [BMC Compuware ISPW CLI docker container](https://hub.docker.com/r/bmccompuware/ispwcli) to push changesets into ISPW. In order to use [bmc-compuware/ispw-sync@v2](http://github.com/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
+This mainframe action uses [BMC Compuware ISPW CLI docker container](https://hub.docker.com/r/bmccompuware/ispwcli) to push changesets into ISPW. In order to use [bmc-compuware/ispw-sync@v2](http://github.com/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
 * support Docker (For example, self-hosted Linux runner with docker, self-hosted Windows with WSL2/Docker or ubuntu-latest)
 * access ISPW host and port from the self-hosted runner
 
