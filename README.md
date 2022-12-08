@@ -13,18 +13,15 @@ GitHub action version vs Docker container version:
 ## Table of Contents
 <!-- toc -->
 
-- [ispw-sync](#ispw-sync)
-  - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
   - [Inputs](#inputs)
   - [Outputs](#outputs)
   - [Troubleshooting](#troubleshooting)
   - [Relationship between ispw-sync GitHub action and Docker](#relationship-between-ispw-sync-github-action-and-docker)
-  - [License Summary](#license-summary)
+  - [License](LICENSE.txt)
   - [Limitation](#limitation)
 
 <!-- tocstop -->
-
 
 ## Usage
 
@@ -101,11 +98,6 @@ This action emits debug logs to help troubleshoot failure. To see the debug logs
 The ispw-sync action if triggered by GitHub workflow will pull ISPW CLI Docker container and run that container to push the change sets to ISPW.
 
 ![ispw-sync explained](media/ispw-sync-explained.png)
-
-## License Summary
-
-This code is made available under the MIT license.
-
 
 ## Limitation
 
