@@ -41,7 +41,7 @@ GitHub action version vs Docker container version:
         uses: bmc-compuware/ispw-sync@v2
         id: sync
         with:
-            host: 'cw09'
+            host: 'host.example.com'
             port: 47623
             uid: 'foo'
             pass: ${{ secrets.ISPWPASS }}
