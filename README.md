@@ -1,11 +1,11 @@
-# ispw-sync
+# code-pipeline-sync
 
-This mainframe action uses [BMC Compuware ISPW CLI docker container](https://hub.docker.com/r/bmccompuware/ispwcli) to push changesets into ISPW. In order to use [bmc-compuware/ispw-sync@v2](http://github.com/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
+This mainframe action uses [BMC AMI DevX Workbench Code Pipeline CLI docker container](https://hub.docker.com/r/bmccompuware/ispwcli) to push changesets into Code Pipeline. In order to use [bmc-compuware/ispw-sync@v2](http://github.com/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
 * support Docker (For example, self-hosted Linux runner with docker, self-hosted Windows with WSL2/Docker or ubuntu-latest)
-* access ISPW host and port from the self-hosted runner
+* access Code Pipeline host and port from the self-hosted runner
 
 GitHub action version vs Docker container version:
-| ispw-sync Version | CLI Version | DockerHub |
+| code-pipeline-sync Version | CLI Version | DockerHub |
 | :---------- | :---------- | :---------- |
 | bmc-compuware/ispw-sync@v1 | v20.6.1.gtk | bmccompuware/ispwcli:v20.6.1.gtk |
 | bmc-compuware/ispw-sync@v2 | v20.7.1.gtk.ga | bmccompuware/ispwcli:v20.7.gtk.ga |
@@ -28,7 +28,7 @@ GitHub action version vs Docker container version:
 ```yaml
   job_sync:
     runs-on: [self-hosted, ubuntu20]
-    name: ISPW Sync
+    name: Code Pipeline Sync
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -63,21 +63,21 @@ GitHub action version vs Docker container version:
 
 | Input name | Required | Description |
 | :--------- | :------- | :---------- |
-| `host` | **Required** | The ISPW server host. For example, `"cw09"` |
-| `port` | **Required** | The ISPW server port. For example, `47623` |
+| `host` | **Required** | The Code Pipeline server host. For example, `"cw09"` |
+| `port` | **Required** | The Code Pipeline server port. For example, `47623` |
 | `encryptionProtocol` | **Optional** | The encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2). Default `"None"`
 | `codePage` | **Optional** | The code page for the connection. default, `1047` |
 | `timeout` | **Optional** | The timeout (in minutes) for the connection. Default, `0` |
 | `uid` | **Required** | The user name for the connection. For example, `"foo"` |
 | `pass` | **Required** | The password for the connection. Please use secrets, such as, `${{ secrets.ISPWPASS }}` |
-| `runtimeConfiguration` | **Required** | The ISPW server config. For example, `"TPZP"` |
-| `stream` | **Required** | The ISPW server stream. For example, `"PLAY"` |
-| `application` | **Required** | The ISPW server application. For example, `"PLAY"` |
-| `checkoutLevel` | **Required** | The ISPW server level. For example, `"DEV1"` |
+| `runtimeConfiguration` | **Required** | The Code Pipeline server config. For example, `"TPZP"` |
+| `stream` | **Required** | The Code Pipeline server stream. For example, `"PLAY"` |
+| `application` | **Required** | The Code Pipeline server application. For example, `"PLAY"` |
+| `checkoutLevel` | **Required** | The Code Pipeline server level. For example, `"DEV1"` |
 | `gitUid` | **Required** | The user name for the GitHub repository. For example, `"gitfoo"` |
 | `gitToken` | **Required** | GitHub token, PAT or password for the GitHub repository. Please use secrets, such as, `${{ secrets.GITHUB_TOKEN }}`, `${{ secrets.GITPAT }}` or `${{ secrets.GITPASS }}` |
-| `containerCreation` | **Optional** | The option to indicate how often to create a new ISPW container (per-commit, per-branch). Default, `"per-commit"` |
-| `containerDescription` | **Optional** | The custom description to be used for the ISPW container. |
+| `containerCreation` | **Optional** | The option to indicate how often to create a new Code Pipeline container (per-commit, per-branch). Default, `"per-commit"` |
+| `containerDescription` | **Optional** | The custom description to be used for the Code Pipeline container. |
 | `showEnv` | **Optional** | Show value of environment variables for debugging. Possible values are `true` or `false` |
 
 
@@ -93,11 +93,11 @@ GitHub action version vs Docker container version:
 
 This action emits debug logs to help troubleshoot failure. To see the debug logs, set the input `showEnv: true`.
 
-## Relationship between ispw-sync GitHub action and Docker
+## Relationship between code-pipeline-sync GitHub action and Docker
 
-The ispw-sync action if triggered by GitHub workflow will pull ISPW CLI Docker container and run that container to push the change sets to ISPW.
+The code-pipeline-sync action if triggered by GitHub workflow will pull Code Pipeline CLI Docker container and run that container to push the change sets to Code Pipeline.
 
-![ispw-sync explained](media/ispw-sync-explained.png)
+![code-pipeline-sync explained](media/ispw-sync-explained.png)
 
 ## Limitation
 

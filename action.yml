@@ -1,6 +1,6 @@
 # action.yml
-name: 'ispw-sync'
-description: 'Sync a changeset to the mainframe using ISPW CLI docker container'
+name: 'code-pipeline-sync'
+description: 'Sync a changeset to the mainframe using Code Pipeline CLI docker container'
 branding:
   icon: upload-cloud
   color: orange
@@ -34,11 +34,11 @@ inputs:
     required: true
     default: ''
   stream:
-    description: 'The ISPW Stream name'
+    description: 'The Code Pipeline Stream name'
     required: true
     default: 'PLAY'
   application:
-    description: 'The ISPW Application'
+    description: 'The Code Pipeline Application'
     required: true
     default: 'PLAY'
   checkoutLevel:
@@ -52,10 +52,10 @@ inputs:
     description: 'GitHub token, PAT or password'
     required: true
   containerCreation:
-    description: 'The option to indicate how often to create a new ISPW container'
+    description: 'The option to indicate how often to create a new Code Pipeline container'
     required: false
   containerDescription:
-    description: 'The custom description to be used for the ISPW container'
+    description: 'The custom description to be used for the Code Pipeline container'
     required: false
   showEnv:
     description: 'Show environment variables for debug purpose'
