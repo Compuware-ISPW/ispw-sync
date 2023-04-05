@@ -1,11 +1,11 @@
-# code-pipeline-sync
+# Code Pipeline Sync
 
 This mainframe action uses [BMC AMI DevX Workbench Code Pipeline CLI docker container](https://hub.docker.com/r/bmccompuware/ispwcli) to push changesets into Code Pipeline. In order to use [bmc-compuware/ispw-sync@v2](http://github.com/compuware-ispw/ispw-sync) action, the GitHub self-hosted runner launched in the workflow must have the following capabilities:
 * support Docker (For example, self-hosted Linux runner with docker, self-hosted Windows with WSL2/Docker or ubuntu-latest)
 * access Code Pipeline host and port from the self-hosted runner
 
 GitHub action version vs Docker container version:
-| code-pipeline-sync Version | CLI Version | DockerHub |
+| Code Pipeline Sync Version | CLI Version | DockerHub |
 | :---------- | :---------- | :---------- |
 | bmc-compuware/ispw-sync@v1 | v20.6.1.gtk | bmccompuware/ispwcli:v20.6.1.gtk |
 | bmc-compuware/ispw-sync@v2 | v20.7.1.gtk.ga | bmccompuware/ispwcli:v20.7.gtk.ga |
@@ -93,11 +93,11 @@ GitHub action version vs Docker container version:
 
 This action emits debug logs to help troubleshoot failure. To see the debug logs, set the input `showEnv: true`.
 
-## Relationship between code-pipeline-sync GitHub action and Docker
+## Relationship between Code Pipeline Sync GitHub action and Docker
 
-The code-pipeline-sync action if triggered by GitHub workflow will pull Code Pipeline CLI Docker container and run that container to push the change sets to Code Pipeline.
+The Code Pipeline Sync action if triggered by GitHub workflow will pull Code Pipeline CLI Docker container and run that container to push the change sets to Code Pipeline.
 
-![code-pipeline-sync explained](media/ispw-sync-explained.png)
+![Code Pipeline Sync explained](media/ispw-sync-explained.png)
 
 ## Limitation
 
