@@ -1,5 +1,5 @@
 # action.yml
-name: 'code-pipeline-sync'
+name: 'Code Pipeline Sync'
 description: 'Sync a changeset to the mainframe using Code Pipeline CLI docker container'
 branding:
   icon: upload-cloud
